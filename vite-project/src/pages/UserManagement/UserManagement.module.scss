@@ -1,12 +1,54 @@
-/* Styling for User Management */
+/* General Styles for User Management Page */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Wrapper Styles */
+.managementWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* User Management */
 .userManagement {
     padding: 2rem;
     background-color: #f4f7fa;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
-    margin: 0 auto; /* Center the container */
+    margin: 0 auto;
     width: 100%;
+    min-height: 600px;
+    position: relative;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    opacity: 0;
+    animation: fadeInContent 1s forwards;
+    animation-delay: 0.5s;
+}
+
+/* Hide scrollbar for all browsers */
+.userManagement::-webkit-scrollbar {
+    display: none;
+}
+
+/* Fade in content for userManagement */
+@keyframes fadeInContent {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Starts below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends at original position */
+    }
 }
 
 /* Header Styles */
@@ -15,20 +57,43 @@
     font-weight: bold;
     margin-bottom: 2rem;
     color: #333;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+    animation-delay: 0.7s;
+}
+
+/* Text Fade In */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(10px); /* Starts slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends at original position */
+    }
 }
 
 /* Form Styles */
 .addUserForm {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* Gap between form elements */
-    margin-bottom: 2rem; /* Space below the form */
+    gap: 1.5rem;
+    margin-bottom: 2rem;
     width: 100%;
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+    animation-delay: 1s;
 }
 
 .formTitle {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+    animation-delay: 1.2s;
 }
 
 .inputField {
@@ -38,30 +103,40 @@
     border-radius: 4px;
     transition: border 0.3s ease;
     width: 100%;
-    max-width: 600px; /* Limit the width of inputs */
-    margin: 0 auto; /* Center align inputs */
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+    animation-delay: 1.5s;
 }
 
-.inputField:focus {
-    border-color: #007bff;
-}
-
+/* Button Fade In */
 .addButton {
-    padding: 0.6rem 1.5rem; /* Shortened padding for smaller button */
+    padding: 0.6rem 1.5rem;
     background-color: #007bff;
     color: #fff;
-    font-size: 1rem; /* Adjusted font size for better readability */
+    font-size: 1rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 140px; /* Fixed width to avoid stretching */
-    display: inline-block; /* Ensures the button doesn't stretch */
-    margin: 0 auto; /* Center align button */
+    width: 140px;
+    display: inline-block;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeInButton 1s forwards;
+    animation-delay: 1.8s;
 }
 
-.addButton:hover {
-    background-color: #0056b3;
+@keyframes fadeInButton {
+    0% {
+        opacity: 0;
+        transform: scale(0.8); /* Starts small */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Ends at original size */
+    }
 }
 
 /* Table Styles */
@@ -69,19 +144,45 @@
     width: 100%;
     border-collapse: collapse;
     margin-top: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .table th, .table td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #ccc;
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+    animation-delay: 2s;
 }
 
 .table th {
     background-color: #007bff;
     color: #fff;
+    font-weight: bold;
 }
 
+.table td {
+    background-color: #fff;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+    transform: translateX(5px);
+    animation: hoverRow 0.2s forwards;
+}
+
+@keyframes hoverRow {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(5px);
+    }
+}
+
+/* Edit Button Animation */
 .editButton {
     padding: 0.6rem 1rem;
     background-color: #28a745;
@@ -90,12 +191,14 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    animation: buttonHover 0.3s forwards;
 }
 
 .editButton:hover {
     background-color: #218838;
 }
 
+/* Delete Button Hover Effect */
 .deleteButton {
     padding: 0.6rem 1rem;
     background-color: #dc3545;
@@ -113,7 +216,7 @@
 /* Blinking effect for active status */
 .active {
     color: green;
-    animation: blinkActive 1s infinite; /* Blinking animation for active status */
+    animation: blinkActive 1s infinite;
 }
 
 @keyframes blinkActive {
@@ -135,14 +238,68 @@
 
 /* Responsive Media Queries */
 
-/* For mobile (small screens) */
-@media (max-width: 768px) {
+/* Large Screens (Desktops, Large Laptops) */
+@media (min-width: 1200px) {
     .userManagement {
-        padding: 1rem; /* Reduce padding on small screens */
+        padding: 2rem;
     }
 
     .header {
-        font-size: 1.5rem; /* Adjust header size */
+        font-size: 2rem;
+    }
+
+    .formTitle {
+        font-size: 1.5rem;
+    }
+
+    .inputField {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .addButton, .editButton, .deleteButton {
+        width: auto;
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+/* Medium Screens (Laptops, Tablets) */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .userManagement {
+        padding: 1.5rem;
+    }
+
+    .header {
+        font-size: 1.8rem;
+    }
+
+    .formTitle {
+        font-size: 1.4rem;
+    }
+
+    .inputField {
+        font-size: 1rem;
+        padding: 0.7rem;
+    }
+
+    .addButton, .editButton, .deleteButton {
+        width: 100%;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .table th, .table td {
+        padding: 0.9rem;
+    }
+}
+
+/* Small Screens (Tablets and Small Laptops) */
+@media (max-width: 767px) {
+    .userManagement {
+        padding: 1rem;
+    }
+
+    .header {
+        font-size: 1.5rem;
     }
 
     .formTitle {
@@ -150,24 +307,45 @@
     }
 
     .inputField {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         padding: 0.6rem;
     }
 
     .addButton, .editButton, .deleteButton {
-        width: 100%; /* Make buttons full width */
-        padding: 0.5rem; /* Reduced padding for smaller devices */
+        width: 100%;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .table th, .table td {
+        padding: 0.8rem;
     }
 }
 
-/* For larger screens (like desktop) */
-@media (min-width: 1024px) {
+/* Extra Small Screens (Mobile Devices) */
+@media (max-width: 480px) {
     .userManagement {
-        max-width: 1200px; /* Ensure a good layout on large screens */
+        padding: 0.8rem;
+    }
+
+    .header {
+        font-size: 1.4rem;
+    }
+
+    .formTitle {
+        font-size: 1.2rem;
     }
 
     .inputField {
-        font-size: 1.1rem;
-        padding: 1rem;
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+
+    .addButton, .editButton, .deleteButton {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .table th, .table td {
+        padding: 0.7rem;
     }
 }

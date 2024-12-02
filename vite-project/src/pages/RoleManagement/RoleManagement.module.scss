@@ -1,23 +1,55 @@
-/* Styling for Role Management */
+/* General Styles for Role Management Page */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Wrapper Styles */
+.roleManagementWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Role Management */
 .roleManagement {
     padding: 2rem;
     background-color: #f4f7fa;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
-    margin: 0 auto; /* Center the container */
+    margin: 0 auto;
+    width: 100%;
+    min-height: 600px;
+    position: relative;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    animation: fadeIn 1s ease-in-out;
 }
 
+/* Hide scrollbar for all browsers */
+.roleManagement::-webkit-scrollbar {
+    display: none;
+}
+
+/* Header Styles */
 .header {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 2rem;
     color: #333;
+    animation: fadeInUp 1s ease-out;
 }
 
 /* Form Styles */
 .formGroup {
     margin-bottom: 1rem;
+    animation: fadeInLeft 1s ease-out;
 }
 
 .inputField {
@@ -26,7 +58,8 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: border 0.3s ease;
-    width: 100%; /* Ensure inputs fill their container */
+    width: 30%;
+    animation: fadeInUp 1s ease-out;
 }
 
 .inputField:focus {
@@ -34,28 +67,30 @@
 }
 
 .addRoleButton {
-    padding: 0.6rem 1.5rem; /* Reduced padding */
+    padding: 0.6rem 1.5rem;
     background-color: #007bff;
     color: #fff;
-    font-size: 0.9rem; /* Adjusted font size */
+    font-size: 0.9rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: auto; /* Adjust width to fit content */
-    display: inline-block; /* Ensures the button doesn't stretch */
+    width: auto;
+    display: inline-block;
+    animation: fadeInRight 1s ease-out;
 }
 
 .addRoleButton:hover {
     background-color: #0056b3;
+    animation: none; /* Remove hover animation */
 }
-
 
 /* Table Styles */
 .table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 2rem;
+    animation: fadeInUp 1s ease-out;
 }
 
 .table th, .table td {
@@ -77,10 +112,12 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    animation: scaleIn 0.3s ease-out;
 }
 
 .editButton:hover {
     background-color: #218838;
+    animation: scaleOut 0.3s ease-in-out;
 }
 
 /* Modal Styles */
@@ -102,6 +139,7 @@
     border-radius: 8px;
     width: 400px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
 .permissions {
@@ -130,6 +168,7 @@
 .updateButton {
     background-color: #007bff;
     color: #fff;
+    animation: scaleIn 0.3s ease-out;
 }
 
 .updateButton:hover {
@@ -139,6 +178,7 @@
 .cancelButton {
     background-color: #dc3545;
     color: #fff;
+    animation: scaleIn 0.3s ease-out;
 }
 
 .cancelButton:hover {
@@ -146,15 +186,13 @@
 }
 
 /* Responsive Media Queries */
-
-/* For mobile (small screens) */
 @media (max-width: 768px) {
     .roleManagement {
-        padding: 1rem; /* Reduce padding on small screens */
+        padding: 1rem;
     }
 
     .header {
-        font-size: 1.5rem; /* Adjust header size */
+        font-size: 1.5rem;
     }
 
     .formGroup {
@@ -162,81 +200,73 @@
     }
 
     .inputField {
+        font-size: 0.9rem;
         padding: 0.6rem;
-        font-size: 0.9rem;
     }
 
-    .addRoleButton {
-        width: 100%;
-        padding: 1rem; /* Make the button larger on mobile */
-    }
-
-    .table th, .table td {
-        padding: 0.8rem;
-        font-size: 0.9rem;
-    }
-
-    .editButton, .updateButton, .cancelButton {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
+    .addRoleButton, .editButton {
+        width: 100%; /* Make buttons full width */
+        padding: 0.5rem; /* Reduced padding for smaller devices */
     }
 }
 
-/* For tablet (medium screens) */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .roleManagement {
-        padding: 1.5rem;
+/* Keyframes for animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
     }
-
-    .header {
-        font-size: 1.8rem; /* Slightly smaller header for medium screens */
-    }
-
-    .inputField {
-        padding: 0.8rem;
-        font-size: 1rem;
-    }
-
-    .addRoleButton {
-        padding: 0.8rem 2rem;
-    }
-
-    .table th, .table td {
-        padding: 1rem;
-        font-size: 1rem;
-    }
-
-    .editButton, .updateButton, .cancelButton {
-        padding: 0.7rem 1.2rem;
-        font-size: 1rem;
+    100% {
+        opacity: 1;
     }
 }
 
-/* For desktop (large screens) */
-@media (min-width: 1025px) {
-    .roleManagement {
-        padding: 2rem;
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
     }
-
-    .header {
-        font-size: 2rem;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    .inputField {
-        padding: 0.8rem;
-        font-size: 1rem;
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
     }
-
-    .addRoleButton {
-        padding: 0.8rem 2rem;
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
+}
 
-    .table th, .table td {
-        padding: 1rem;
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
     }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
-    .editButton, .updateButton, .cancelButton {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleOut {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.9);
     }
 }

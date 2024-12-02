@@ -58,13 +58,13 @@ const UserManagement = () => {
 
     return (
         <div className={styles.userManagement}>
-            <center><h1 className={styles.header}>User Management</h1></center>
+            <h1 className={styles.header}>User Management</h1>
 
             {/* Add/Edit User Form */}
             <div className={styles.addUserForm}>
-               <center> <h2 className={styles.formTitle}>
+                <h2 className={styles.formTitle}>
                     {isEditing ? 'Edit User' : 'Add New User'}
-                </h2></center>
+                </h2>
                 <input
                     type="text"
                     name="name"
@@ -99,51 +99,53 @@ const UserManagement = () => {
             </div>
 
             {/* Users Table */}
-            <table className={styles.table}>
-                <thead>
-                    <tr>
-                        <th>S. No</th>
-                        <th>Name</th>
-                        <th>Role</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.map((user, index) => (
-                        <tr key={user.id}>
-                            <td>{index + 1}</td>
-                            <td>{user.name}</td>
-                            <td>{user.role}</td>
-                            <td>
-                                <span
-                                    className={
-                                        user.status === 'Active'
-                                            ? styles.active
-                                            : styles.inactive
-                                    }
-                                >
-                                    {user.status}
-                                </span>
-                            </td>
-                            <td>
-                                <button
-                                    onClick={() => handleEditUser(user)}
-                                    className={styles.editButton}
-                                >
-                                    Edit
-                                </button>
-                                <button
-                                    onClick={() => handleDeleteUser(user.id)}
-                                    className={styles.deleteButton}
-                                >
-                                    Delete
-                                </button>
-                            </td>
+            <div className={styles.tableContainer}>
+                <table className={styles.table}>
+                    <thead>
+                        <tr>
+                            <th>S. No</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {users.map((user, index) => (
+                            <tr key={user.id}>
+                                <td>{index + 1}</td>
+                                <td>{user.name}</td>
+                                <td>{user.role}</td>
+                                <td>
+                                    <span
+                                        className={
+                                            user.status === 'Active'
+                                                ? styles.active
+                                                : styles.inactive
+                                        }
+                                    >
+                                        {user.status}
+                                    </span>
+                                </td>
+                                <td>
+                                    <button
+                                        onClick={() => handleEditUser(user)}
+                                        className={styles.editButton}
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        onClick={() => handleDeleteUser(user.id)}
+                                        className={styles.deleteButton}
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

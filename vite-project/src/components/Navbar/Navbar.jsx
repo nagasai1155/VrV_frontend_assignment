@@ -6,12 +6,13 @@ const Navbar = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles.logo}>RBAC Dashboard</div>
+         <center>   <div className={styles.floatingText}>My Name is Nagasai </div></center>
             <ul className={styles.navLinks}>
                 <li className={styles.navItem}>
-                    <Link to="/users" className={`${styles.navLink} ${styles.blink}`}>Users</Link>
+                    <Link to="/users" className={styles.navLink}>Users</Link>
                 </li>
                 <li className={styles.navItem}>
-                    <Link to="/roles" className={`${styles.navLink} ${styles.blink}`}>Roles</Link>
+                    <Link to="/roles" className={styles.navLink}>Roles</Link>
                 </li>
             </ul>
         </nav>

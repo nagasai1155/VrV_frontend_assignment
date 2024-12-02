@@ -5,7 +5,7 @@ const RoleManagement = () => {
     const [roles, setRoles] = useState([
         { id: 1, name: 'Admin', permissions: ['Read', 'Write', 'Delete'] },
         { id: 2, name: 'Editor', permissions: ['Read', 'Write'] },
-        { id: 3, name: 'Viewer', permissions: ['Read'] },
+        { id: 3, name: 'Viewer', permissions: ['Read'] },{ id: 3, name: 'Viewer', permissions: ['Read'] },{ id: 3, name: 'Viewer', permissions: ['Read'] }
     ]);
     const [newRole, setNewRole] = useState({ name: '', permissions: [] });
     const [editRole, setEditRole] = useState(null);
@@ -49,55 +49,57 @@ const RoleManagement = () => {
 
     return (
         <div className={styles.roleManagement}>
-            <h1 className={styles.header}>Role Management</h1>
+           <center>
+           <h1 className={styles.header}>Role Management</h1>
 
-            {/* Add Role Form */}
-            <form onSubmit={handleAddRole} className={styles.form}>
-                <div className={styles.formGroup}>
-                    <label htmlFor="roleName">Role Name</label>
-                    <input
-                        type="text"
-                        id="roleName"
-                        value={newRole.name}
-                        onChange={(e) => setNewRole({ ...newRole, name: e.target.value })}
-                        placeholder="Enter role name"
-                        className={styles.inputField}
-                        required
-                    />
-                </div>
-                <div className={styles.formGroup}>
-                    <label>Permissions</label>
-                    <div className={styles.permissions}>
-                        <label className={styles.checkboxLabel}>
-                            <input
-                                type="checkbox"
-                                checked={newRole.permissions.includes('Read')}
-                                onChange={() => handlePermissionChange('Read')}
-                            />
-                            Read
-                        </label>
-                        <label className={styles.checkboxLabel}>
-                            <input
-                                type="checkbox"
-                                checked={newRole.permissions.includes('Write')}
-                                onChange={() => handlePermissionChange('Write')}
-                            />
-                            Write
-                        </label>
-                        <label className={styles.checkboxLabel}>
-                            <input
-                                type="checkbox"
-                                checked={newRole.permissions.includes('Delete')}
-                                onChange={() => handlePermissionChange('Delete')}
-                            />
-                            Delete
-                        </label>
-                    </div>
-                </div>
-                <button type="submit" className={styles.addRoleButton}>
-                    Add Role
-                </button>
-            </form>
+{/* Add Role Form */}
+<form onSubmit={handleAddRole} className={styles.form}>
+    <div className={styles.formGroup}>
+        <label htmlFor="roleName">Role Name</label>
+        <input
+            type="text"
+            id="roleName"
+            value={newRole.name}
+            onChange={(e) => setNewRole({ ...newRole, name: e.target.value })}
+            placeholder="Enter role name"
+            className={styles.inputField}
+            required
+        />
+    </div>
+    <div className={styles.formGroup}>
+        <label>Permissions</label>
+        <div className={styles.permissions}>
+            <label className={styles.checkboxLabel}>
+                <input
+                    type="checkbox"
+                    checked={newRole.permissions.includes('Read')}
+                    onChange={() => handlePermissionChange('Read')}
+                />
+                Read
+            </label>
+            <label className={styles.checkboxLabel}>
+                <input
+                    type="checkbox"
+                    checked={newRole.permissions.includes('Write')}
+                    onChange={() => handlePermissionChange('Write')}
+                />
+                Write
+            </label>
+            <label className={styles.checkboxLabel}>
+                <input
+                    type="checkbox"
+                    checked={newRole.permissions.includes('Delete')}
+                    onChange={() => handlePermissionChange('Delete')}
+                />
+                Delete
+            </label>
+        </div>
+    </div>
+    <button type="submit" className={styles.addRoleButton}>
+        Add Role
+    </button>
+</form>
+           </center>
 
             {/* Role List Table */}
             <table className={styles.table}>
