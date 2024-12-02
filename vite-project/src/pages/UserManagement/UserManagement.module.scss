@@ -1,0 +1,141 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* User Management Styles */
+.userManagement {
+    padding: 2rem;
+    background-color: #f4f7fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* Add User Form */
+.addUserForm {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.formTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.inputField {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border 0.3s ease;
+}
+
+.inputField:focus {
+    border-color: #007bff;
+}
+
+.addButton {
+    padding: 0.8rem 2rem;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.addButton:hover {
+    background-color: #0056b3;
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.table th, .table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.tableRow:hover {
+    background-color: #f1f1f1;
+}
+
+.table th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.active {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.inactive {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.deleteButton {
+    padding: 0.6rem 1.2rem;
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.deleteButton:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .addUserForm {
+        padding: 1rem;
+    }
+
+    .inputGroup {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .inputField, .addButton {
+        font-size: 0.9rem;
+    }
+
+    .table th, .table td {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}

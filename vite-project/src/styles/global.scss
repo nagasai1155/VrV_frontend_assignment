@@ -1,0 +1,25 @@
+body {
+    font-family: $font-family;
+    margin: 0;
+    background-color: $background-color;
+    color: $text-color;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    color: $primary-color;
+}
+
+button {
+    padding: $padding;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: $primary-color;
+    color: white;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
+}
