@@ -6,8 +6,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
     margin: 0 auto; /* Center the container */
+    width: 100%;
 }
 
+/* Header Styles */
 .header {
     font-size: 2rem;
     font-weight: bold;
@@ -16,6 +18,14 @@
 }
 
 /* Form Styles */
+.addUserForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Gap between form elements */
+    margin-bottom: 2rem; /* Space below the form */
+    width: 100%;
+}
+
 .formTitle {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -27,7 +37,9 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: border 0.3s ease;
-    width: 100%; /* Ensure inputs fill their container */
+    width: 100%;
+    max-width: 600px; /* Limit the width of inputs */
+    margin: 0 auto; /* Center align inputs */
 }
 
 .inputField:focus {
@@ -35,22 +47,22 @@
 }
 
 .addButton {
-    padding: 0.6rem 1.5rem; /* Reduced padding */
+    padding: 0.6rem 1.5rem; /* Shortened padding for smaller button */
     background-color: #007bff;
     color: #fff;
-    font-size: 0.9rem; /* Adjusted font size */
+    font-size: 1rem; /* Adjusted font size for better readability */
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: auto; /* Adjust width to fit content */
+    width: 140px; /* Fixed width to avoid stretching */
     display: inline-block; /* Ensures the button doesn't stretch */
+    margin: 0 auto; /* Center align button */
 }
 
 .addButton:hover {
     background-color: #0056b3;
 }
-
 
 /* Table Styles */
 .table {
@@ -115,13 +127,15 @@
     }
 
     .inputField {
-        padding: 0.6rem;
+        padding: 0.8rem;
         font-size: 0.9rem;
+        margin-bottom: 1rem; /* Add space below inputs */
     }
 
     .addButton {
-        width: 100%;
-        padding: 1rem; /* Make the button larger on mobile */
+        width: 100%; /* Button takes full width on small screens */
+        padding: 0.6rem 1rem; /* Reduced padding */
+        font-size: 0.9rem; /* Slightly smaller font */
     }
 
     .table th, .table td {
@@ -151,7 +165,7 @@
     }
 
     .addButton {
-        padding: 0.8rem 2rem;
+        padding: 0.6rem 1.5rem; /* Shorter padding for medium screens */
     }
 
     .table th, .table td {
@@ -181,7 +195,7 @@
     }
 
     .addButton {
-        padding: 0.8rem 2rem;
+        padding: 0.6rem 1.5rem; /* Shortened padding for desktop */
     }
 
     .table th, .table td {
