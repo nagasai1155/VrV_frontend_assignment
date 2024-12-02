@@ -58,13 +58,13 @@ const UserManagement = () => {
 
     return (
         <div className={styles.userManagement}>
-            <h1 className={styles.header}>User Management</h1>
+            <center><h1 className={styles.header}>User Management</h1></center>
 
             {/* Add/Edit User Form */}
             <div className={styles.addUserForm}>
-                <h2 className={styles.formTitle}>
+               <center> <h2 className={styles.formTitle}>
                     {isEditing ? 'Edit User' : 'Add New User'}
-                </h2>
+                </h2></center>
                 <input
                     type="text"
                     name="name"

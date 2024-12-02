@@ -110,6 +110,29 @@
     background-color: #c82333;
 }
 
+/* Blinking effect for active status */
+.active {
+    color: green;
+    animation: blinkActive 1s infinite; /* Blinking animation for active status */
+}
+
+@keyframes blinkActive {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Inactive status without blinking */
+.inactive {
+    color: red;
+}
+
 /* Responsive Media Queries */
 
 /* For mobile (small screens) */
@@ -123,87 +146,28 @@
     }
 
     .formTitle {
-        font-size: 1.3rem; /* Adjust form title size */
+        font-size: 1.3rem;
     }
 
     .inputField {
-        padding: 0.8rem;
         font-size: 0.9rem;
-        margin-bottom: 1rem; /* Add space below inputs */
+        padding: 0.6rem;
     }
 
-    .addButton {
-        width: 100%; /* Button takes full width on small screens */
-        padding: 0.6rem 1rem; /* Reduced padding */
-        font-size: 0.9rem; /* Slightly smaller font */
-    }
-
-    .table th, .table td {
-        padding: 0.8rem;
-        font-size: 0.9rem;
-    }
-
-    .editButton, .deleteButton {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
+    .addButton, .editButton, .deleteButton {
+        width: 100%; /* Make buttons full width */
+        padding: 0.5rem; /* Reduced padding for smaller devices */
     }
 }
 
-/* For tablet (medium screens) */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* For larger screens (like desktop) */
+@media (min-width: 1024px) {
     .userManagement {
-        padding: 1.5rem;
-    }
-
-    .header {
-        font-size: 1.8rem; /* Slightly smaller header for medium screens */
+        max-width: 1200px; /* Ensure a good layout on large screens */
     }
 
     .inputField {
-        padding: 0.8rem;
-        font-size: 1rem;
-    }
-
-    .addButton {
-        padding: 0.6rem 1.5rem; /* Shorter padding for medium screens */
-    }
-
-    .table th, .table td {
+        font-size: 1.1rem;
         padding: 1rem;
-        font-size: 1rem;
-    }
-
-    .editButton, .deleteButton {
-        padding: 0.7rem 1.2rem;
-        font-size: 1rem;
-    }
-}
-
-/* For desktop (large screens) */
-@media (min-width: 1025px) {
-    .userManagement {
-        padding: 2rem;
-    }
-
-    .header {
-        font-size: 2rem;
-    }
-
-    .inputField {
-        padding: 0.8rem;
-        font-size: 1rem;
-    }
-
-    .addButton {
-        padding: 0.6rem 1.5rem; /* Shortened padding for desktop */
-    }
-
-    .table th, .table td {
-        padding: 1rem;
-    }
-
-    .editButton, .deleteButton {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
     }
 }

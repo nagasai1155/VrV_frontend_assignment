@@ -8,10 +8,10 @@ const Navbar = () => {
             <div className={styles.logo}>RBAC Dashboard</div>
             <ul className={styles.navLinks}>
                 <li className={styles.navItem}>
-                    <Link to="/users" className={styles.navLink}>Users</Link>
+                    <Link to="/users" className={`${styles.navLink} ${styles.blink}`}>Users</Link>
                 </li>
                 <li className={styles.navItem}>
-                    <Link to="/roles" className={styles.navLink}>Roles</Link>
+                    <Link to="/roles" className={`${styles.navLink} ${styles.blink}`}>Roles</Link>
                 </li>
             </ul>
         </nav>

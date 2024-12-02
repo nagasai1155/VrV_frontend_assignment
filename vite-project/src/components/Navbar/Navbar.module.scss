@@ -7,11 +7,12 @@
 
 body {
     font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa; /* Light background for content */
 }
 
 /* Navbar Styles */
 .navbar {
-    background-color: #74828f; /* Dark background for contrast */
+    background-color: #2c3e50; /* Dark background for contrast */
     color: #fff;
     padding: 1rem 2rem;
     display: flex;
@@ -20,17 +21,41 @@ body {
     position: sticky;
     top: 0;
     width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    transition: background-color 0.3s ease;
 }
 
+/* Logo Styles with Blinking Animation */
 .logo {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: bold;
     color: #fff;
     letter-spacing: 1px;
     text-transform: uppercase;
+    animation: blinkColors 3s linear infinite; /* Add blinking effect */
 }
 
+/* Blinking Color Animation for Logo */
+@keyframes blinkColors {
+    0% {
+        color: #ff5722; /* Red */
+    }
+    25% {
+        color: #00bcd4; /* Light Blue */
+    }
+    50% {
+        color: #8e44ad; /* Purple */
+    }
+    75% {
+        color: #27ae60; /* Green */
+    }
+    100% {
+        color: #f39c12; /* Yellow */
+    }
+}
+
+/* Navigation Links Styles */
 .navLinks {
     display: flex;
     list-style: none;
@@ -38,23 +63,70 @@ body {
 
 .navItem {
     margin-left: 2rem;
+    transition: transform 0.3s ease-in-out, color 0.3s ease;
 }
 
+/* Hover Effect on Nav Items */
+.navItem:hover {
+    transform: translateY(-5px); /* Moves up on hover */
+    color: #00bcd4;
+}
+
+/* Navigation Link Styling */
 .navLink {
     color: #fff;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 500;
+    text-transform: uppercase;
     transition: color 0.3s ease, transform 0.3s ease;
+    position: relative; /* Necessary for pointer effects */
 }
 
+/* Blinking Animation for Users and Roles */
+@keyframes blinkRedGreen {
+    0% {
+        color: #ff5722; /* Red */
+    }
+    50% {
+        color: #27ae60; /* Green */
+    }
+    100% {
+        color: #ff5722; /* Red */
+    }
+}
+
+/* Apply blinking effect to Users and Roles links */
+.blink {
+    animation: blinkRedGreen 1.5s linear infinite; /* Faster blinking for Users and Roles */
+}
+
+/* Hover and Active Effects on Links */
 .navLink:hover {
-    color: #00bcd4; /* Light blue color on hover */
-    transform: translateY(-2px);
+    color: #00bcd4;
+    transform: translateY(-2px); /* Smooth movement up */
 }
 
+/* Pointer Animation */
+.navLink::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #00bcd4;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.navLink:hover::before {
+    transform: scaleX(1); /* Underline animation on hover */
+}
+
+/* Active State for Nav Links */
 .navLink:active {
-    color: #ff5722; /* Active state color */
+    color: #ff5722;
 }
 
 /* Responsive Design */
@@ -62,6 +134,11 @@ body {
     .navbar {
         flex-direction: column;
         padding: 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
     }
 
     .navLinks {
@@ -74,5 +151,30 @@ body {
     .navItem {
         margin-left: 0;
         margin-top: 1rem;
+    }
+
+    .navLink {
+        font-size: 1.2rem;
+        text-align: center; /* Center the links */
+        padding: 10px;
+    }
+}
+
+/* For tablet and larger screens */
+@media (min-width: 769px) {
+    .navbar {
+        padding: 1rem 3rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .navLinks {
+        margin-left: auto;
+    }
+
+    .navItem {
+        margin-left: 2rem;
     }
 }
