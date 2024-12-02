@@ -4,6 +4,8 @@
     background-color: #f4f7fa;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
 }
 
 .header {
@@ -24,6 +26,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: border 0.3s ease;
+    width: 100%; /* Ensure inputs fill their container */
 }
 
 .inputField:focus {
@@ -31,19 +34,22 @@
 }
 
 .addRoleButton {
-    padding: 0.8rem 2rem;
+    padding: 0.6rem 1.5rem; /* Reduced padding */
     background-color: #007bff;
     color: #fff;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Adjusted font size */
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: auto; /* Adjust width to fit content */
+    display: inline-block; /* Ensures the button doesn't stretch */
 }
 
 .addRoleButton:hover {
     background-color: #0056b3;
 }
+
 
 /* Table Styles */
 .table {
@@ -102,3 +108,135 @@
     margin-top: 1rem;
 }
 
+.checkboxLabel {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.modalActions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.updateButton, .cancelButton {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.updateButton {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.updateButton:hover {
+    background-color: #0056b3;
+}
+
+.cancelButton {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.cancelButton:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Media Queries */
+
+/* For mobile (small screens) */
+@media (max-width: 768px) {
+    .roleManagement {
+        padding: 1rem; /* Reduce padding on small screens */
+    }
+
+    .header {
+        font-size: 1.5rem; /* Adjust header size */
+    }
+
+    .formGroup {
+        margin-bottom: 1.2rem;
+    }
+
+    .inputField {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .addRoleButton {
+        width: 100%;
+        padding: 1rem; /* Make the button larger on mobile */
+    }
+
+    .table th, .table td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .editButton, .updateButton, .cancelButton {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* For tablet (medium screens) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .roleManagement {
+        padding: 1.5rem;
+    }
+
+    .header {
+        font-size: 1.8rem; /* Slightly smaller header for medium screens */
+    }
+
+    .inputField {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .addRoleButton {
+        padding: 0.8rem 2rem;
+    }
+
+    .table th, .table td {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .editButton, .updateButton, .cancelButton {
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+    }
+}
+
+/* For desktop (large screens) */
+@media (min-width: 1025px) {
+    .roleManagement {
+        padding: 2rem;
+    }
+
+    .header {
+        font-size: 2rem;
+    }
+
+    .inputField {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .addRoleButton {
+        padding: 0.8rem 2rem;
+    }
+
+    .table th, .table td {
+        padding: 1rem;
+    }
+
+    .editButton, .updateButton, .cancelButton {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}

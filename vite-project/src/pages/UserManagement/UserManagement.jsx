@@ -16,12 +16,19 @@ const UserManagement = () => {
     ]);
 
     const [newUser, setNewUser] = useState({
+        id: '',
         name: '',
         role: '',
         status: 'Active',
     });
 
+    const [isEditing, setIsEditing] = useState(false);
+
     const handleAddUser = () => {
+        if (!newUser.name || !newUser.role) {
+            alert('Please fill out all fields.');
+            return;
+        }
         const newUserObj = { ...newUser, id: users.length + 1 };
         setUsers([...users, newUserObj]);
         setNewUser({ name: '', role: '', status: 'Active' }); // Reset the form
@@ -36,13 +43,28 @@ const UserManagement = () => {
         setNewUser({ ...newUser, [name]: value });
     };
 
+    const handleEditUser = (user) => {
+        setIsEditing(true);
+        setNewUser({ ...user });
+    };
+
+    const handleSaveUser = () => {
+        setUsers(
+            users.map((user) => (user.id === newUser.id ? newUser : user))
+        );
+        setIsEditing(false);
+        setNewUser({ name: '', role: '', status: 'Active' }); // Reset the form
+    };
+
     return (
         <div className={styles.userManagement}>
             <h1 className={styles.header}>User Management</h1>
 
-            {/* Add User Form */}
+            {/* Add/Edit User Form */}
             <div className={styles.addUserForm}>
-                <h2 className={styles.formTitle}>Add New User</h2>
+                <h2 className={styles.formTitle}>
+                    {isEditing ? 'Edit User' : 'Add New User'}
+                </h2>
                 <input
                     type="text"
                     name="name"
@@ -68,8 +90,11 @@ const UserManagement = () => {
                     <option value="Active">Active</option>
                     <option value="Inactive">Inactive</option>
                 </select>
-                <button onClick={handleAddUser} className={styles.addButton}>
-                    Add User
+                <button
+                    onClick={isEditing ? handleSaveUser : handleAddUser}
+                    className={styles.addButton}
+                >
+                    {isEditing ? 'Save Changes' : 'Add User'}
                 </button>
             </div>
 
@@ -93,13 +118,21 @@ const UserManagement = () => {
                             <td>
                                 <span
                                     className={
-                                        user.status === 'Active' ? styles.active : styles.inactive
+                                        user.status === 'Active'
+                                            ? styles.active
+                                            : styles.inactive
                                     }
                                 >
                                     {user.status}
                                 </span>
                             </td>
                             <td>
+                                <button
+                                    onClick={() => handleEditUser(user)}
+                                    className={styles.editButton}
+                                >
+                                    Edit
+                                </button>
                                 <button
                                     onClick={() => handleDeleteUser(user.id)}
                                     className={styles.deleteButton}
