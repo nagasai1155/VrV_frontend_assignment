@@ -1,0 +1,73 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #57a483, #6580af, #9a4f9a, #b65b5b);
+    background-size: 400% 400%;
+    color: #f1eeec;
+    font-family: 'Arial', 'Times New Roman', Times, serif;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+    animation: gradientShift 10s ease infinite;
+}
+
+/* Gradient animation for a dynamic effect */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: linear-gradient(green,yellow,pink,58deg);
+    animation: fadeInOut 4s infinite, slideIn 2s ease-in-out;
+}
+
+/* Keyframes for animations */
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .text {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .text {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .text {
+        font-size: 1.5rem;
+    }
+}

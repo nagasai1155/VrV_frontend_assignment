@@ -6,8 +6,13 @@ const Navbar = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles.logo}>RBAC Dashboard</div>
-         <center>   <div className={styles.floatingText}>VRV SECURITY</div></center>
+            <center>
+                <div className={styles.floatingText}> welcome to VRV security</div>
+            </center>
             <ul className={styles.navLinks}>
+                <li className={styles.navItem}>
+                    <Link to="/" className={styles.navLink}>Home</Link>
+                </li>
                 <li className={styles.navItem}>
                     <Link to="/users" className={styles.navLink}>Users</Link>
                 </li>
